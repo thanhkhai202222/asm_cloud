@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Toys from Stars</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </head>
+
+    <body>
+        <div class="container mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Adding toys</h1>
+
+                    <!-- (1): CREATE Task -->         
+                    <form action="/quotes" method="POST">   
+                        <div class="form-group">
+                            <label for="id">ID</label>
+                            <input type="text" class="form-control" id="id" placeholder="Enter ID" name="ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter Name" name="Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price</label>
+                            <input type="text" class="form-control" id="price" placeholder="Enter Price" name="Price">
+                        </div>
+                        <div class="form-group">
+                            <label for="type">Type</label>
+                            <input type="text" class="form-control" id="type" placeholder="Enter Type" name="Type">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            
+
+            <!-- (2) READ Task -->                        
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h2 class="card-title">Toys list</h2>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Loop through quotes -->
+                            <% for(var i = 0; i < quotes.length; i++) {%>
+                                <tr>
+                                    <td><%= quotes[i].ID %></td>
+                                    <td><%= quotes[i].Name %></td>
+                                    <td><%= quotes[i].Price %></td>
+                                    <td><%= quotes[i].Type %></td>
+                                    <td>
+                                        <!-- <a href="quotes/<%= quotes[i]._id %>">
+                                            <button class="btn-danger">Delete</button>
+                                        </a> -->
+                                    </td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </body>
+</html>
